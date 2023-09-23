@@ -16,18 +16,15 @@ import javax.inject.Inject
 class CharacterViewModel @Inject constructor(val repository: Repository): ViewModel(){
 
     private val _state= MutableStateFlow(Character())
-    val state:StateFlow<Character>
+    val state:StateFlow<List<CharacterItem>>
          get()=_state
 
 
     fun getCharacters(){
         viewModelScope.launch {
+
             val response=repository.remote.getCharacters()
-            if(response.isSuccessful){
-                _state.value= response.body()!!
-            }else{
-                Log.d("viewmodel","No data")
-            }
+            _state.value= response.body()!!
         }
     }
 

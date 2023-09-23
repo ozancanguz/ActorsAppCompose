@@ -35,7 +35,7 @@ object NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://hp-api.onrender.com/api")
+            .baseUrl("https://hp-api.onrender.com/api/")
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
