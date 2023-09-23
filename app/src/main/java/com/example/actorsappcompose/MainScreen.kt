@@ -9,20 +9,6 @@ import androidx.navigation.NavController
 fun MainScreen(navController: NavController) {
     
     
-    Text(text = "This is the main screen")
 
-    Button(onClick = {
-
-          // navigate to detail
-        navController.navigate(Screen.DetailScreen.route)
-
-
-
-
-
-    }) {
-
-
-
-    }
+    
 }
