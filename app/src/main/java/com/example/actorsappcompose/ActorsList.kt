@@ -9,6 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bumptech.glide.Glide
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.example.actorsappcompose.data.Character
 import com.example.actorsappcompose.data.CharacterItem
 
@@ -32,11 +35,15 @@ fun ActorsList(characterItem: List<CharacterItem>) {
 
 }
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun CardItem(characterItem: CharacterItem) {
 
 
     Column (){
+
+      GlideImage(model = characterItem.image, contentDescription ="Character Image" ,
+          modifier = Modifier.padding(4.dp))
         Text(text = characterItem.name)
 
     }
